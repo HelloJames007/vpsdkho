@@ -305,23 +305,27 @@ question.forEach((question) => {
   });
 });
 const toggleButton = document.getElementById("themeToggle");
-toggleButton.addEventListener("click", () => {
-  if (toggleButton.classList.contains("fa-moon")) {
-    toggleButton.classList.remove("fa-moon");
-    toggleButton.classList.add("fa-sun");
-  } else {
-    toggleButton.classList.remove("fa-sun");
-    toggleButton.classList.add("fa-moon");
-  }
-  document.body.classList.toggle("dark-theme");
-  document
-    .querySelectorAll(
-      "nav, .logo p, .main-container, select, .feature-table, .button, .article-content, .container, .question, .answer, .happy-client, footer , .cat-select , .loading-spinner , #themeToggle , #expended-nav , #logo , .marquee"
-    )
-    .forEach((el) => {
-      el.classList.toggle("dark-theme");
-    });
-});
+
+const toggleTheme = () => {
+    if (toggleButton.classList.contains("fa-moon")) {
+        toggleButton.classList.remove("fa-moon");
+        toggleButton.classList.add("fa-sun");
+    } else {
+        toggleButton.classList.remove("fa-sun");
+        toggleButton.classList.add("fa-moon");
+    }
+    document.body.classList.toggle("dark-theme");
+    document
+        .querySelectorAll(
+            "nav, .logo p, .main-container, select, .feature-table, .button, .article-content, .container, .question, .answer, .happy-client, footer , .cat-select , .loading-spinner , #themeToggle , #expended-nav , #logo , .marquee"
+        )
+        .forEach((el) => {
+            el.classList.toggle("dark-theme");
+        });
+};
+
+// toggleButton.addEventListener("click", toggleTheme);
+toggleButton.addEventListener("touchstart", toggleTheme);
 
 let navTogBtn = document.getElementById("nav-toggle");
 let expandedNav = document.getElementById("expended-nav");
